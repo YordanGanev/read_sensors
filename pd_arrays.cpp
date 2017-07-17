@@ -1,3 +1,8 @@
+typedef enum {
+  KP , KD, KQ, MAX_SPEED, START_SPEED, SPEED_DOWN, SLOWDOWN_LEVEL
+} E_MOVEMENT_DEFINITIONS;
+
+
                                     //  kp,   kd,   kq,   max, start, down, down_level,
 const unsigned int settings[11][7] = {  { 45,   60,   25,   155,  50,   135,  60},
                                         { 45,   58,   25,   155,  50,   135,  60},
