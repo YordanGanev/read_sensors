@@ -27,8 +27,10 @@ void read_position(void) {
     tmp_value = analogRead(sensors[sens]) / 2;
       if (tmp_value > sensor_min[sens])
         sensor_values[sens] = tmp_value -  sensor_min[sens];
+      else if ( tmp_val == ssensor_min[sens])
+        sensor_value[sens] = 1; // negative num and 0 cause issues !
       else
-        sensor_values[sens] = tmp_value; // negative num and 0 cause issues !
+        sensor_values[sens] = tmp_value;
   }
   sensor_values[DOHIO_RIGHT]  = analogRead(sensors[DOHIO_RIGHT_SENS]) / 2;    // Right dohio sensor
 
@@ -40,8 +42,10 @@ void read_position(void) {
     tmp_value =  analogRead(sensors[sens]) / 2;
       if (tmp_value > sensor_min[sens]) 
         sensor_values[sens]  = tmp_value -  sensor_min[sens];
-      else
-        sensor_values[sens] = tmp_value; // negative num and 0 cause issues !
+      else if ( tmp_val == ssensor_min[sens])
+        sensor_value[sens] = 1; // negative num and 0 cause issues !
+      else 
+        sensor_values[sens] = tmp_value; 
   }
   PORTD &= B11110111; // set OPT_ENABLE_TWO on LOW
 }
